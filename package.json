@@ -3,16 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "1.1.4"
+    "babel-polyfill": "^6.26.0",
+    "node-sass": "^4.9.0",
+    "react-app-rewired": "^1.5.2",
+    "react-scripts": "^1.1.4",
+    "sass-loader": "^7.0.3"
   },
   "dependencies": {
+    "@redux-beacon/google-tag-manager": "^1.0.0",
+    "axios": "^0.18.0",
+    "bootstrap-sass": "^3.3.7",
+    "immutable": "^3.8.2",
+    "keymirror": "^0.1.1",
+    "lodash": "^4.17.10",
+    "qs": "^6.5.2",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.1",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-select": "^1.2.1",
+    "react-transition-group": "^2.3.1",
+    "redux": "^4.0.0",
+    "redux-beacon": "^2.0.3",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-immutable": "^4.0.0",
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom"
   }
 }
