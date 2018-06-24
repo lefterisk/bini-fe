@@ -5,7 +5,10 @@ import SearchState from '../records/SearchState';
 export default function SearchStateReducer(state = new SearchState(), action) {
     switch (action.type) {
         case SearchActionTypes.SEARCH_START: {
-            state = state.set('loading', true);
+            state = state.merge({
+                loading: true,
+                search: action.search
+            });
             break;
         }
         case SearchActionTypes.SEARCH_SUCCESS: {

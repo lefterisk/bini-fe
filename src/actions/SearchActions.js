@@ -6,6 +6,8 @@ const SearchActions = {
     search: (search) => async dispatch => {
         dispatch({type: SearchActionTypes.SEARCH_START, search});
 
+        console.log('search');
+
         try {
             const {results} = await Search.search(search);
             dispatch({type: SearchActionTypes.SEARCH_SUCCESS, results});

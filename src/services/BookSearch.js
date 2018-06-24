@@ -4,9 +4,10 @@ import Book from '../records/Book';
 
 const BookSearch = {
     async search(search) {
-        setTimeout(() => {
-            return resolveAll([]).as(Book);
-        }, 3000);
+        await new Promise((resolve) => {
+            setTimeout(() => resolve(), 3000);
+        });
+        return resolveAll([]).as(Book);
     }
 };
 

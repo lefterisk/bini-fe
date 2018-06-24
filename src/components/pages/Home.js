@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 import {Helmet} from 'react-helmet';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import SearchState from '../../records/SearchState';
+import Search from '../../records/Search';
 
 import SearchActions from "../../actions/SearchActions";
-
+import Filters from "../Filters";
 
 class Home extends React.PureComponent {
     static propTypes = {
@@ -15,34 +19,45 @@ class Home extends React.PureComponent {
         search: PropTypes.func.isRequired
     };
 
-    state = {
-        loading: false
-    };
+    componentDidMount () {
+        const query = decodeURI(this.props.location.search.replace('?', ''));
+        const currentQuery = decodeURI(this.props.currentSearch.search.toQuery());
+        if (query !== currentQuery) {
+            this.props.search(Search.fromQuery(query));
+        }
+    }
+
+    componentWillReceiveProps (newProps) {
+        const query = decodeURI(newProps.location.search.replace('?', ''));
+        const newQuery = decodeURI(newProps.currentSearch.search.toQuery());
+        if (query !== newQuery) {
+            this.props.search(Search.fromQuery(query));
+        }
+    }
 
     onSearch = async (search) => {
-        this.setState({
-            loading: true
+        this.props.history.push({
+            pathname: '/',
+            search: search.toQuery()
         });
-
-        await this.props.search(search);
-
-        this.setState({
-            loading: false
-        });
-        this.props.history.push(`search/${search.urlEncode()}`);
     };
 
     render () {
         const {currentSearch} = this.props;
-        console.log(currentSearch);
         return (
-            <div>
+            <React.Fragment>
                 <Helmet>
                     <title>Anazitisi</title>
                     <meta name="description" content="Anazitisi" />
                 </Helmet>
-                Anazitisi
-            </div>
+                <Grid>
+                    <Row>
+                        <Col xs={12}>
+                            <Filters search={currentSearch.search} onSearch={this.onSearch}/>
+                        </Col>
+                    </Row>
+                </Grid>
+            </React.Fragment>
         );
     }
 }
