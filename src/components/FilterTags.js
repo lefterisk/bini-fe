@@ -11,18 +11,19 @@ function FilterTags({onDelete, search}) {
     const onClick = (filterType) => {
         return () => {
             onDelete(filterType);
-        }
+        };
     };
 
     const fields = {
         author: 'Συγγραφέας: ',
         language: 'Γλώσσα: ',
-        placeOfPublication: 'Τόπος έκδωσης: ',
-        publicationType: 'Είδος δημοσιεύματος',
-        publisher: 'Εκδότης/Τυπογράφος',
-        subject: 'θέμα',
+        countryOfPublication: 'Χώρα έκδωσης: ',
+        cityOfPublication: 'Πόλη έκδωσης: ',
+        publicationType: 'Είδος δημοσιεύματος: ',
+        publisher: 'Εκδότης/Τυπογράφος: ',
+        subject: 'θέμα: ',
         title: 'Τίτλος: ',
-        yearOfPublication: 'Έτος έκδωσης'
+        yearOfPublication: 'Έτος έκδωσης: '
     };
 
     return (<div>

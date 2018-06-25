@@ -5,15 +5,15 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {FilterTypes} from './../../constants';
-import SubjectsActions from "../../actions/SubjectsActions";
-import SubjectsState from "../../records/SubjectsState";
+import CitiesActions from "../../actions/CitiesActions";
+import CitiesState from "../../records/CitiesState";
 
-class Subject extends React.PureComponent {
+class CityOfPublication extends React.PureComponent {
     static propTypes = {
         onChange: PropTypes.func.isRequired,
         value: PropTypes.object,
-        subjects: PropTypes.instanceOf(SubjectsState),
-        getSubjects: PropTypes.func.isRequired
+        cities: PropTypes.instanceOf(CitiesState),
+        getCities: PropTypes.func.isRequired
     };
 
     static defaultProps = {
@@ -21,22 +21,22 @@ class Subject extends React.PureComponent {
     };
 
     componentDidMount () {
-        const {subjects, getSubjects} = this.props;
-        if (!subjects.loaded && !subjects.loading) {
-            getSubjects();
+        const {cities, getCities} = this.props;
+        if (!cities.loaded && !cities.loading) {
+            getCities();
         }
     }
 
     handleChange = (value) => {
         this.props.onChange({
-            type: FilterTypes.SUBJECT,
+            type: FilterTypes.CITY_OF_PUBLICATION,
             value: value.value
         });
     };
 
     render () {
-        const {subjects} = this.props;
-        const options = subjects.results.map(result => { return {
+        const {cities} = this.props;
+        const options = cities.results.map(result => { return {
             label: result,
             value: result
         };}).toArray();
@@ -46,7 +46,7 @@ class Subject extends React.PureComponent {
             value={this.props.value ? this.props.value.value : null}
             onChange={this.handleChange}
             clearable={false}
-            isLoading={subjects.loading}
+            isLoading={cities.loading}
             options={options}
         />);
     }
@@ -54,14 +54,14 @@ class Subject extends React.PureComponent {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getSubjects: bindActionCreators(SubjectsActions.get, dispatch)
+        getCities: bindActionCreators(CitiesActions.get, dispatch)
     };
 };
 
 const mapStateToProps = (state) => {
     return {
-        subjects: state.subjects,
+        cities: state.cities,
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Subject);
+export default connect(mapStateToProps, mapDispatchToProps)(CityOfPublication);

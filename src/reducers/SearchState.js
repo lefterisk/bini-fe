@@ -12,7 +12,11 @@ export default function SearchStateReducer(state = new SearchState(), action) {
             break;
         }
         case SearchActionTypes.SEARCH_SUCCESS: {
-            state = state.set('loading', false);
+            state = state.merge({
+                loading: false,
+                results: action.books,
+                itemsCount: action.count
+            });
             break;
         }
         case SearchActionTypes.SEARCH_FAIL: {

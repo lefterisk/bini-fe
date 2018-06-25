@@ -9,8 +9,8 @@ const SearchActions = {
         console.log('search');
 
         try {
-            const {results} = await Search.search(search);
-            dispatch({type: SearchActionTypes.SEARCH_SUCCESS, results});
+            const {books, count} = await Search.search(search);
+            dispatch({type: SearchActionTypes.SEARCH_SUCCESS, books, count});
         } catch (err) {
             // HANDLE login FAILURE
             console.log(err);

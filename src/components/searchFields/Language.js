@@ -22,7 +22,7 @@ class Language extends React.PureComponent {
     };
 
     render () {
-        return <Select
+        return (<Select
                 name="form-field-name"
                 value={this.props.value ? this.props.value.value : null}
                 onChange={this.handleChange}
@@ -38,7 +38,7 @@ class Language extends React.PureComponent {
                     { value: Languages.SERBIAN, label: Languages.SERBIAN },
                     { value: Languages.TURKISH, label: Languages.TURKISH },
                 ]}
-            />;
+            />);
     }
 }
 

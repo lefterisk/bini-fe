@@ -1,9 +1,17 @@
-import Config from './Config';
 import SearchState from './SearchState';
 import Search from './Search';
+import UiState from './UiState';
+import CitiesState from './CitiesState';
+import CountriesState from './CountriesState';
+import LibrariesState from './LibrariesState';
+import SubjectsState from './SubjectsState';
 
 export default {
-    Config,
     SearchState,
-    Search
+    Search,
+    UiState,
+    CitiesState,
+    CountriesState,
+    LibrariesState,
+    SubjectsState
 };

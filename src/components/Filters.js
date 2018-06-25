@@ -9,7 +9,8 @@ import {FilterTypes} from './../constants';
 import Search from '../records/Search';
 import Author from "./searchFields/Author";
 import Language from "./searchFields/Language";
-import PlaceOfPublication from "./searchFields/PlaceOfPublication";
+import CountryOfPublication from "./searchFields/CountryOfPublication";
+import CityOfPublication from "./searchFields/CityOfPublication";
 import PublicationType from "./searchFields/PublicationType";
 import Publisher from "./searchFields/Publisher";
 import Subject from "./searchFields/Subject";
@@ -61,8 +62,10 @@ class Filters extends React.PureComponent {
                 return <Author onChange={this.changeFieldValue} value={currentValue}/>;
             case FilterTypes.LANGUAGE:
                 return <Language onChange={this.changeFieldValue} value={currentValue}/>;
-            case FilterTypes.PLACE_OF_PUBLICATION:
-                return <PlaceOfPublication onChange={this.changeFieldValue} value={currentValue}/>;
+            case FilterTypes.COUNTRY_OF_PUBLICATION:
+                return <CountryOfPublication onChange={this.changeFieldValue} value={currentValue}/>;
+            case FilterTypes.CITY_OF_PUBLICATION:
+                return <CityOfPublication onChange={this.changeFieldValue} value={currentValue}/>;
             case FilterTypes.PUBLICATION_TYPE:
                 return <PublicationType onChange={this.changeFieldValue} value={currentValue}/>;
             case FilterTypes.PUBLISHER:
@@ -91,7 +94,8 @@ class Filters extends React.PureComponent {
                             options={[
                                 { value: FilterTypes.AUTHOR, label: 'Συγγραφέας' },
                                 { value: FilterTypes.TITLE, label: 'Τίτλος' },
-                                { value: FilterTypes.PLACE_OF_PUBLICATION, label: 'Τόπος έκδωσης' },
+                                { value: FilterTypes.COUNTRY_OF_PUBLICATION, label: 'Χώρα έκδωσης' },
+                                { value: FilterTypes.CITY_OF_PUBLICATION, label: 'Πόλη έκδωσης' },
                                 { value: FilterTypes.YEAR_OF_PUBLICATION, label: 'Έτος έκδωσης' },
                                 { value: FilterTypes.PUBLISHER, label: 'Εκδότης/Τυπογράφος' },
                                 { value: FilterTypes.PUBLICATION_TYPE, label: 'Είδος δημοσιεύματος' },

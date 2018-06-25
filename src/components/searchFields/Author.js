@@ -22,12 +22,12 @@ class Author extends React.PureComponent {
     };
 
     render () {
-        return <FormControl
+        return (<FormControl
             type="text"
             value={this.props.value ? this.props.value.value : ''}
             placeholder="Συγγραφέας"
             onChange={this.handleChange}
-        />;
+        />);
     }
 }
 

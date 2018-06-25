@@ -5,15 +5,15 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {FilterTypes} from './../../constants';
-import SubjectsActions from "../../actions/SubjectsActions";
-import SubjectsState from "../../records/SubjectsState";
+import CountriesActions from "../../actions/CountriesActions";
+import CountriesState from "../../records/CountriesState";
 
-class Subject extends React.PureComponent {
+class CountryOfPublication extends React.PureComponent {
     static propTypes = {
         onChange: PropTypes.func.isRequired,
         value: PropTypes.object,
-        subjects: PropTypes.instanceOf(SubjectsState),
-        getSubjects: PropTypes.func.isRequired
+        countries: PropTypes.instanceOf(CountriesState),
+        getCountries: PropTypes.func.isRequired
     };
 
     static defaultProps = {
@@ -21,22 +21,22 @@ class Subject extends React.PureComponent {
     };
 
     componentDidMount () {
-        const {subjects, getSubjects} = this.props;
-        if (!subjects.loaded && !subjects.loading) {
-            getSubjects();
+        const {countries, getCountries} = this.props;
+        if (!countries.loaded && !countries.loading) {
+            getCountries();
         }
     }
 
     handleChange = (value) => {
         this.props.onChange({
-            type: FilterTypes.SUBJECT,
+            type: FilterTypes.COUNTRY_OF_PUBLICATION,
             value: value.value
         });
     };
 
     render () {
-        const {subjects} = this.props;
-        const options = subjects.results.map(result => { return {
+        const {countries} = this.props;
+        const options = countries.results.map(result => { return {
             label: result,
             value: result
         };}).toArray();
@@ -46,7 +46,7 @@ class Subject extends React.PureComponent {
             value={this.props.value ? this.props.value.value : null}
             onChange={this.handleChange}
             clearable={false}
-            isLoading={subjects.loading}
+            isLoading={countries.loading}
             options={options}
         />);
     }
@@ -54,14 +54,14 @@ class Subject extends React.PureComponent {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getSubjects: bindActionCreators(SubjectsActions.get, dispatch)
+        getCountries: bindActionCreators(CountriesActions.get, dispatch)
     };
 };
 
 const mapStateToProps = (state) => {
     return {
-        subjects: state.subjects,
+        countries: state.countries,
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Subject);
+export default connect(mapStateToProps, mapDispatchToProps)(CountryOfPublication);

@@ -17,8 +17,8 @@ function Index () {
         <Provider store={store}>
             <ConnectedRouter history={history}>
                 <Switch>
-                    <Route exact path='/' component={HomePage}/>
                     <Route exact path='/:bookId' component={BookPage}/>
+                    <Route exact path='/' component={HomePage}/>
                     <Route component={NoMatch}/>
                 </Switch>
             </ConnectedRouter>

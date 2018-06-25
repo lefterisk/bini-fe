@@ -8,6 +8,8 @@ import {FilterTypes} from "../constants";
 const defaults = {
     REC_TYPE: 'CurrentSearch',
     filters: new List(),
+    page: 1,
+    limit: 20
 };
 
 class Search extends record(defaults) {

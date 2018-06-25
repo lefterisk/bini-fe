@@ -21,10 +21,7 @@ class Home extends React.PureComponent {
 
     componentDidMount () {
         const query = decodeURI(this.props.location.search.replace('?', ''));
-        const currentQuery = decodeURI(this.props.currentSearch.search.toQuery());
-        if (query !== currentQuery) {
-            this.props.search(Search.fromQuery(query));
-        }
+        this.props.search(Search.fromQuery(query));
     }
 
     componentWillReceiveProps (newProps) {

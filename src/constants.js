@@ -6,10 +6,35 @@ export const SearchActionTypes = keyMirror({
     SEARCH_FAIL: null
 });
 
+export const CountriesActionTypes = keyMirror({
+    COUNTRIES_START: null,
+    COUNTRIES_SUCCESS: null,
+    COUNTRIES_FAIL: null
+});
+
+export const CitiesActionTypes = keyMirror({
+    CITIES_START: null,
+    CITIES_SUCCESS: null,
+    CITIES_FAIL: null
+});
+
+export const LibrariesActionTypes = keyMirror({
+    LIBRARIES_START: null,
+    LIBRARIES_SUCCESS: null,
+    LIBRARIES_FAIL: null
+});
+
+export const SubjectsActionTypes = keyMirror({
+    SUBJECTS_START: null,
+    SUBJECTS_SUCCESS: null,
+    SUBJECTS_FAIL: null
+});
+
 export const FilterTypes = {
     AUTHOR: 'author',
     LANGUAGE: 'language',
-    PLACE_OF_PUBLICATION: 'placeOfPublication',
+    COUNTRY_OF_PUBLICATION: 'countryOfPublication',
+    CITY_OF_PUBLICATION: 'cityOfPublication',
     PUBLICATION_TYPE: 'publicationType',
     PUBLISHER: 'publisher',
     SUBJECT: 'subject',
@@ -29,3 +54,19 @@ export const Languages = {
     SERBIAN: 'Σερβικά',
     TURKISH: 'Τουρκικά'
 };
+
+export const PublicationTypes = {
+    BOOK: 'Βιβλίο',
+    BOOK_PART: 'Μέρος βιβλίου',
+    SCHOOL_MANUAL: 'Βιβλίο-σχολικό εγχειρίδιο',
+    UNI_BOOK: 'Βιβλίο-πανεπιστημιακό σύγγραμμα',
+    TWO_PAGE: 'Δίφυλλο',
+    ONE_PAGE: 'Μονόφυλλο',
+    ARTICLE: 'Άρθρο σε περιοδικό',
+    MAP: 'Χάρτης'
+};
+
+export const UiActionTypes = keyMirror({
+    LOADING_START: null,
+    LOADING_END: null
+});
