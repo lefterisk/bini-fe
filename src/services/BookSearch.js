@@ -18,10 +18,6 @@ const BookSearch = {
             console.error(err);
             return Promise.reject();
         }
-        // await new Promise((resolve) => {
-        //     setTimeout(() => resolve(), 3000);
-        // });
-        // return resolveAll([]).as(Book);
     }
 };
 
