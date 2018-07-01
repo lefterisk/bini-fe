@@ -42,6 +42,8 @@ class CountryOfPublication extends React.PureComponent {
         };}).toArray();
 
         return (<Select
+            noResultsText="Δεν βρέθηκε..."
+            placeholder="Επιλέξτε"
             name="form-field-name"
             value={this.props.value ? this.props.value.value : null}
             onChange={this.handleChange}

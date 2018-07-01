@@ -6,6 +6,12 @@ export const SearchActionTypes = keyMirror({
     SEARCH_FAIL: null
 });
 
+export const BookActionTypes = keyMirror({
+    GET_BOOK_START: null,
+    GET_BOOK_SUCCESS: null,
+    GET_BOOK_FAIL: null
+});
+
 export const CountriesActionTypes = keyMirror({
     COUNTRIES_START: null,
     COUNTRIES_SUCCESS: null,

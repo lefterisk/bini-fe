@@ -4,7 +4,7 @@ import {construct, resolve} from '../helpers/mappers';
 
 const defaults = {
     REC_TYPE: 'Book',
-    book_id: null,
+    id: null,
     book_author: new List(),
     book_title: null,
     book_parallel_title: null,
@@ -79,7 +79,7 @@ const defaults = {
 class Book extends record(defaults) {
     static fromJSON(json = {}) {
         return construct(Book, json, {
-            book_id: resolve.with(Number),
+            id: resolve.with(Number),
             book_author: resolve.with(List),
             book_title: resolve.with(String),
             book_parallel_title: resolve.with(String),

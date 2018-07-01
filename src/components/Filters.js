@@ -37,11 +37,13 @@ class Filters extends React.PureComponent {
         this.props.onSearch(search.addFilter(this.state.currentValue));
     };
 
-    handleChangeType = async ({value}) => {
-        this.setState({
-            currentValue: null,
-            currentFilterType: value
-        });
+    handleChangeType = async (choice) => {
+        if (choice && choice.value) {
+            this.setState({
+                currentValue: null,
+                currentFilterType: choice.value
+            });
+        }
     };
 
     changeFieldValue = (value) => {
@@ -83,7 +85,7 @@ class Filters extends React.PureComponent {
         const {currentFilterType} = this.state;
         return (
             <React.Fragment>
-                <Row>
+                <Row className="filters">
                     <Col sm={6}>{this.getFilterField()}</Col>
                     <Col sm={4}>
                         <Select

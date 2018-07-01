@@ -9,7 +9,6 @@ const CountriesActions = {
             const results = await Countries.get();
             dispatch({type: CountriesActionTypes.COUNTRIES_SUCCESS, results});
         } catch (err) {
-            // HANDLE login FAILURE
             console.log(err);
             dispatch({type: CountriesActionTypes.COUNTRIES_FAIL});
         }

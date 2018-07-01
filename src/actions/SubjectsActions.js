@@ -9,7 +9,6 @@ const SubjectsActions = {
             const results = await Libraries.get();
             dispatch({type: SubjectsActionTypes.SUBJECTS_SUCCESS, results});
         } catch (err) {
-            // HANDLE login FAILURE
             console.log(err);
             dispatch({type: SubjectsActionTypes.SUBJECTS_FAIL});
         }

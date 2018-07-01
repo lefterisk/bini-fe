@@ -43,6 +43,8 @@ class Subject extends React.PureComponent {
 
         return (<Select
             name="form-field-name"
+            noResultsText="Δεν βρέθηκε..."
+            placeholder="Επιλέξτε"
             value={this.props.value ? this.props.value.value : null}
             onChange={this.handleChange}
             clearable={false}

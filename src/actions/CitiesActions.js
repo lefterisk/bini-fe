@@ -9,7 +9,6 @@ const CitiesActions = {
             const results = await Cities.get();
             dispatch({type: CitiesActionTypes.CITIES_SUCCESS, results});
         } catch (err) {
-            // HANDLE login FAILURE
             console.log(err);
             dispatch({type: CitiesActionTypes.CITIES_FAIL});
         }

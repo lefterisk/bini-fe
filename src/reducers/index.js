@@ -7,6 +7,7 @@ import cities from './Cities';
 import subjects from './Subjects';
 import libraries from './Libraries';
 import ui from './Ui';
+import book from './Book';
 
 export default combineReducers({
     router: routerReducer,
@@ -15,5 +16,6 @@ export default combineReducers({
     countries,
     cities,
     libraries,
-    subjects
+    subjects,
+    book
 });

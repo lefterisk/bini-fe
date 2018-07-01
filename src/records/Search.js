@@ -3,13 +3,14 @@ import qs from 'qs';
 import _ from 'lodash';
 
 import {construct, resolve} from '../helpers/mappers';
-import {FilterTypes} from "../constants";
+import config from './../config';
+import {FilterTypes} from './../constants';
 
 const defaults = {
     REC_TYPE: 'CurrentSearch',
     filters: new List(),
-    page: 1,
-    limit: 20
+    page: Number(config.defaultPage),
+    limit: Number(config.defaultItemsPerPage)
 };
 
 class Search extends record(defaults) {
@@ -35,16 +36,16 @@ class Search extends record(defaults) {
         const filters = {};
         this.filters.map(filter => {
             if (filters[filter.type]) {
-                filters[filter.type].values.push(filter.value)
+                filters[filter.type].values.push(filter.value);
             } else {
                 filters[filter.type] = {
                     type: filter.type,
                     values: [filter.value]
-                }
+                };
             }
         });
 
-        return  _.keys(filters).map(filter => filters[filter]);
+        return _.keys(filters).map(filter => filters[filter]);
     }
 
     toQuery() {
@@ -60,23 +61,43 @@ class Search extends record(defaults) {
             }
         });
 
+        if (this.page !== Number(config.defaultPage)) {
+            params.page = this.page;
+        }
+        if (this.limit !== Number(config.defaultItemsPerPage)) {
+            params.limit = this.limit;
+        }
+
         return qs.stringify(params, {encode: false});
     }
 
     static fromQuery(query) {
         let filters = new List();
+        let page = config.defaultPage;
+        let limit = config.defaultItemsPerPage;
+        const acceptableFilters = _.values(FilterTypes);
         const queryObj = qs.parse(query);
         _.keys(queryObj).map(key => {
-            queryObj[key].split('|').map(filter => {
-                filters = filters.push({
-                    type: key,
-                    value: filter
+            const isAcceptableFilter = Boolean(_.find(acceptableFilters, filter => filter === key));
+            if (isAcceptableFilter) {
+                queryObj[key].split('|').map(filter => {
+                    filters = filters.push({
+                        type: key,
+                        value: filter
+                    });
                 });
-            });
+            } else if (key === 'page') {
+                page = Number(queryObj[key]);
+            } else if (key === 'limit') {
+                limit = Number(queryObj[key]);
+            }
+            return null;
         });
 
         return new Search({
-            filters
+            filters,
+            page,
+            limit
         });
     }
 }

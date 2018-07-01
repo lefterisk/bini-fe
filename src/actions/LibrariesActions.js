@@ -9,7 +9,6 @@ const LibrariesActions = {
             const results = await Libraries.get();
             dispatch({type: LibrariesActionTypes.LIBRARIES_SUCCESS, results});
         } catch (err) {
-            // HANDLE login FAILURE
             console.log(err);
             dispatch({type: LibrariesActionTypes.LIBRARIES_FAIL});
         }

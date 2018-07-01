@@ -11,7 +11,12 @@ import SearchState from '../../records/SearchState';
 import Search from '../../records/Search';
 
 import SearchActions from "../../actions/SearchActions";
-import Filters from "../Filters";
+import Filters from '../Filters';
+import BookList from '../BookList';
+import Pagination from '../Pagination';
+import Header from '../Header';
+import NoResults from '../NoResults';
+import Info from '../Info';
 
 class Home extends React.PureComponent {
     static propTypes = {
@@ -25,10 +30,9 @@ class Home extends React.PureComponent {
     }
 
     componentWillReceiveProps (newProps) {
-        const query = decodeURI(newProps.location.search.replace('?', ''));
-        const newQuery = decodeURI(newProps.currentSearch.search.toQuery());
-        if (query !== newQuery) {
-            this.props.search(Search.fromQuery(query));
+        const locationSearch = Search.fromQuery(decodeURI(newProps.location.search.replace('?', '')));
+        if (newProps.currentSearch.search.toQuery() !== locationSearch.toQuery()) {
+            this.props.search(locationSearch);
         }
     }
 
@@ -36,6 +40,22 @@ class Home extends React.PureComponent {
         this.props.history.push({
             pathname: '/',
             search: search.toQuery()
+        });
+    };
+
+    onLimitChange = (limit) => {
+        const search = this.props.currentSearch.search;
+        this.props.history.push({
+            pathname: '/',
+            search: search.set('limit', Number(limit)).toQuery()
+        });
+    };
+
+    onPageChange = (page) => {
+        const search = this.props.currentSearch.search;
+        this.props.history.push({
+            pathname: '/',
+            search: search.set('page', Number(page)).toQuery()
         });
     };
 
@@ -50,8 +70,39 @@ class Home extends React.PureComponent {
                 <Grid>
                     <Row>
                         <Col xs={12}>
+                            <Header/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}>
                             <Filters search={currentSearch.search} onSearch={this.onSearch}/>
                         </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}>
+                            <Pagination search={currentSearch.search}
+                                        count={currentSearch.itemsCount}
+                                        onLimitChange={this.onLimitChange}
+                                        onPageChange={this.onPageChange}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}>
+                            { currentSearch.itemsCount > 0 && <BookList books={currentSearch.results} searchUrl={currentSearch.search.toQuery()}/> }
+                            { currentSearch.itemsCount === 0 && <NoResults/> }
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}>
+                            <Pagination currentPage={currentSearch.search.page}
+                                        limit={currentSearch.search.limit}
+                                        count={currentSearch.itemsCount}
+                                        onLimitChange={this.onLimitChange}
+                                        onPageChange={this.onPageChange}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}><Info /></Col>
                     </Row>
                 </Grid>
             </React.Fragment>

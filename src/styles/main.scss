@@ -1,7 +1,7 @@
 
 // Core variables and mixins
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "./variables.scss";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
 // Reset and dependencies
@@ -53,3 +53,6 @@
 
 // other packages
 @import "~react-select/scss/default";
+
+// Project
+@import "custom";

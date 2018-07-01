@@ -26,7 +26,7 @@ function FilterTags({onDelete, search}) {
         yearOfPublication: 'Έτος έκδωσης: '
     };
 
-    return (<div>
+    return (<div className="filter-tags">
         {filters.map(filter => <Button key={filter.type} onClick={onClick(filter.type)} className="btn-sm">
             <Glyphicon glyph="remove-circle"/>&nbsp;
             <b>{fields[filter.type]}</b> {filter.values.join(' ή ')}

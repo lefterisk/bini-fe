@@ -2,27 +2,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router'
+import {bindActionCreators} from 'redux';
 
-import Search from '../../records/Search';
+import BookActions from "../../actions/BookActions";
+import BookState from "../../records/BookState";
 
 class Book extends React.PureComponent {
     static propTypes = {
-        currentSearch: PropTypes.instanceOf(Search).isRequired,
-        search: PropTypes.func.isRequired
+        bookState: PropTypes.instanceOf(BookState).isRequired,
+        getBook: PropTypes.func.isRequired
     };
 
-    state = {
-        loading: false
-    };
+    componentDidMount() {
+        const {location, getBook} = this.props;
+        const parts = location.pathname.split('--');
 
-    render () {
-        const {currentSearch} = this.props;
-        console.log(currentSearch);
+        if (!parts[1]) {
+            this.props.history.push({
+                pathname: '/',
+                search: location.state && location.state.referer ? location.state.refere : null
+            });
+            return;
+        }
+
+        getBook(parts[1]);
+    }
+
+    render() {
+        const {bookState, location} = this.props;
+        if (bookState.failed) {
+            return (<Redirect to={{
+                pathname: '/',
+                search: location.state && location.state.referer ? location.state.refere : null
+            }}/>);
+        }
         return (
             <div>
                 <Helmet>
                     <title>Vivlio</title>
-                    <meta name="description" content="Vivlio" />
+                    <meta name="description" content="Vivlio"/>
                 </Helmet>
                 Vivlio
             </div>
@@ -30,11 +49,17 @@ class Book extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        currentSearch: state.search,
+        getBook: bindActionCreators(BookActions.get, dispatch)
     };
 };
 
-export default connect(mapStateToProps)(Book);
+const mapStateToProps = (state) => {
+    return {
+        bookState: state.book,
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Book);
 
