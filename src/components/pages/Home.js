@@ -59,6 +59,10 @@ class Home extends React.PureComponent {
         });
     };
 
+    handleBookClick = (linkObj) => {
+        this.props.history.push(linkObj);
+    };
+
     render () {
         const {currentSearch} = this.props;
         return (
@@ -88,7 +92,9 @@ class Home extends React.PureComponent {
                     </Row>
                     <Row>
                         <Col xs={12}>
-                            { currentSearch.itemsCount > 0 && <BookList books={currentSearch.results} searchUrl={currentSearch.search.toQuery()}/> }
+                            { currentSearch.itemsCount > 0 && <BookList books={currentSearch.results}
+                                                                        searchUrl={currentSearch.search.toQuery()}
+                                                                        handleClick={this.handleBookClick}/> }
                             { currentSearch.itemsCount === 0 && <NoResults/> }
                         </Col>
                     </Row>
