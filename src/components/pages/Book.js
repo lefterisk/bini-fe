@@ -19,14 +19,14 @@ class Book extends React.PureComponent {
         getBook: PropTypes.func.isRequired
     };
 
-    componentDidMount() {
+    componentDidMount () {
         const {location, getBook} = this.props;
         const parts = location.pathname.split('--');
 
         if (!parts[1]) {
             this.props.history.push({
                 pathname: '/',
-                search: location.state && location.state.referer ? location.state.refere : null
+                search: location.state && location.state.referer ? location.state.referer : null
             });
             return;
         }
@@ -34,8 +34,9 @@ class Book extends React.PureComponent {
         getBook(parts[1]);
     }
 
-    render() {
+    render () {
         const {bookState, location} = this.props;
+        const {book} = bookState;
         if (bookState.failed) {
             return (<Redirect to={{
                 pathname: '/',
@@ -43,24 +44,38 @@ class Book extends React.PureComponent {
             }}/>);
         }
         return (
-            <div>
-                <Helmet>
-                    <title>Vivlio</title>
-                    <meta name="description" content="Vivlio"/>
-                </Helmet>
-                <Grid>
-                    <Row>
-                        <Col xs={12}>
-                            <Header/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            Book
-                        </Col>
-                    </Row>
-                </Grid>
-            </div>
+            <React.Fragment>
+                {bookState.loading &&
+                <div className="text-center">
+                    <span className="loader-primary-lg"/>
+                </div>}
+                {bookState.book && <React.Fragment>
+                    <Helmet>
+                        <title>{book.book_title}</title>
+                        <meta name="description"
+                              content={`${book.book_title} ${book.book_parallel_title} ${book.book_sub_title}`}/>
+                    </Helmet>
+                    <Grid>
+                        <Row>
+                            <Col xs={12}>
+                                <Header/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={12}>
+                                <table className="table table-striped">
+                                    <tbody>
+                                    <tr>
+                                        <td><b>Τίτλος: </b></td>
+                                        <td>{book.book_title}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </Col>
+                        </Row>
+                    </Grid>
+                </React.Fragment>}
+            </React.Fragment>
         );
     }
 }

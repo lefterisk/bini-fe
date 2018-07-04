@@ -4,6 +4,7 @@ import Select from 'react-select';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Button from 'react-bootstrap/lib/Button';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 import {FilterTypes} from './../constants';
 import Search from '../records/Search';
@@ -20,6 +21,7 @@ import FilterTags from "./FilterTags";
 
 class Filters extends React.PureComponent {
     static propTypes = {
+        loading: PropTypes.bool.isRequired,
         search: PropTypes.instanceOf(Search).isRequired,
         onSearch: PropTypes.func.isRequired
     };
@@ -87,7 +89,7 @@ class Filters extends React.PureComponent {
             <React.Fragment>
                 <Row className="filters">
                     <Col sm={6}>{this.getFilterField()}</Col>
-                    <Col sm={4}>
+                    <Col sm={3} md={4}>
                         <Select
                             name="form-field-name"
                             value={currentFilterType}
@@ -106,10 +108,12 @@ class Filters extends React.PureComponent {
                             ]}
                         />
                     </Col>
-                    <Col sm={2}>
+                    <Col sm={3} md={2}>
                         <Button bsStyle="primary"
                                 className="btn-block"
                                 onClick={this.onSearch}>
+                            <Glyphicon className={this.props.loading ? 'spinning' : ''}
+                                       glyph={this.props.loading ? 'cog' : 'search'}/>&nbsp;
                             Αναζήτηση
                         </Button>
                     </Col>

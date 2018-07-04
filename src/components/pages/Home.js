@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 
 import SearchState from '../../records/SearchState';
 import Search from '../../records/Search';
+import UiState from '../../records/UiState';
 
 import SearchActions from "../../actions/SearchActions";
 import Filters from '../Filters';
@@ -20,6 +21,7 @@ import Info from '../Info';
 
 class Home extends React.PureComponent {
     static propTypes = {
+        ui: PropTypes.instanceOf(UiState).isRequired,
         currentSearch: PropTypes.instanceOf(SearchState).isRequired,
         search: PropTypes.func.isRequired
     };
@@ -64,12 +66,13 @@ class Home extends React.PureComponent {
     };
 
     render () {
-        const {currentSearch} = this.props;
+        const {currentSearch, ui} = this.props;
         return (
             <React.Fragment>
+                {ui.isLoading() && <div className="page-loader"/>}
                 <Helmet>
                     <title>Anazitisi</title>
-                    <meta name="description" content="Anazitisi" />
+                    <meta name="description" content="Anazitisi"/>
                 </Helmet>
                 <Grid>
                     <Row>
@@ -79,7 +82,7 @@ class Home extends React.PureComponent {
                     </Row>
                     <Row>
                         <Col xs={12}>
-                            <Filters search={currentSearch.search} onSearch={this.onSearch}/>
+                            <Filters search={currentSearch.search} onSearch={this.onSearch} loading={ui.isLoading()}/>
                         </Col>
                     </Row>
                     <Row>
@@ -92,27 +95,32 @@ class Home extends React.PureComponent {
                     </Row>
                     <Row>
                         <Col xs={12}>
-                            { currentSearch.itemsCount > 0 && <BookList books={currentSearch.results}
+                             {(currentSearch.loading && currentSearch.itemsCount === 0) &&
+                             <div className="text-center">
+                                 <span className="loader-primary-lg"/>
+                             </div>}
+                             {currentSearch.itemsCount > 0 && <BookList books={currentSearch.results}
                                                                         searchUrl={currentSearch.search.toQuery()}
-                                                                        handleClick={this.handleBookClick}/> }
-                            { currentSearch.itemsCount === 0 && <NoResults/> }
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <Pagination currentPage={currentSearch.search.page}
-                                        limit={currentSearch.search.limit}
-                                        count={currentSearch.itemsCount}
-                                        onLimitChange={this.onLimitChange}
-                                        onPageChange={this.onPageChange}/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}><Info /></Col>
-                    </Row>
-                </Grid>
-            </React.Fragment>
-        );
+                                                                        handleClick={this.handleBookClick}/>}
+                             {(currentSearch.itemsCount === 0 && !currentSearch.loading) && <NoResults/>}
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <Pagination currentPage={currentSearch.search.page}
+                                    limit={currentSearch.search.limit}
+                                    count={currentSearch.itemsCount}
+                                    onLimitChange={this.onLimitChange}
+                                    onPageChange={this.onPageChange}/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}><Info/></Col>
+                </Row>
+            </Grid>
+    </React.Fragment>
+    )
+        ;
     }
 }
 
@@ -124,6 +132,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
+        ui: state.ui,
         currentSearch: state.search,
     };
 };

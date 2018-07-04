@@ -25,7 +25,7 @@ const BookSearch = {
         const apiClient = Api.getApiClient();
         try {
             const results = await apiClient.get(`/book/${bookId}`);
-            return resolve(results.data.books).as(Book);
+            return resolve(results.data.book).as(Book);
         } catch (err) {
             console.error(err);
             return Promise.reject();
