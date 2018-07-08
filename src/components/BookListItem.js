@@ -19,7 +19,7 @@ function BookListItem ({book, searchUrl, handleClick}) {
         <Link to={linkObj} className="book-list-item-title">{book.book_title}</Link>
         <div className="book-list-item-author">
             <span className="book-list-item-label">Συγγραφέας:</span>&nbsp;
-            {book.book_author}
+            {book.book_author.join(', ')}
         </div>
         <div className="book-list-item-publication-year">
             <span className="book-list-item-label">Έτος έκδωσης:</span>&nbsp;

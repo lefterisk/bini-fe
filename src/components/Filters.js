@@ -8,16 +8,17 @@ import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 import {FilterTypes} from './../constants';
 import Search from '../records/Search';
-import Author from "./searchFields/Author";
-import Language from "./searchFields/Language";
-import CountryOfPublication from "./searchFields/CountryOfPublication";
-import CityOfPublication from "./searchFields/CityOfPublication";
-import PublicationType from "./searchFields/PublicationType";
-import Publisher from "./searchFields/Publisher";
-import Subject from "./searchFields/Subject";
-import Title from "./searchFields/Title";
-import YearOfPublication from "./searchFields/YearOfPublication";
-import FilterTags from "./FilterTags";
+import Author from './searchFields/Author';
+import Language from './searchFields/Language';
+import CountryOfPublication from './searchFields/CountryOfPublication';
+import CityOfPublication from './searchFields/CityOfPublication';
+import PublicationType from './searchFields/PublicationType';
+import Publisher from './searchFields/Publisher';
+import Subject from './searchFields/Subject';
+import Title from './searchFields/Title';
+import YearOfPublication from './searchFields/YearOfPublication';
+import All from './searchFields/All';
+import FilterTags from './FilterTags';
 
 class Filters extends React.PureComponent {
     static propTypes = {
@@ -27,7 +28,7 @@ class Filters extends React.PureComponent {
     };
 
     state = {
-        currentFilterType: FilterTypes.AUTHOR,
+        currentFilterType: FilterTypes.ALL,
         currentValue: null
     };
 
@@ -62,6 +63,8 @@ class Filters extends React.PureComponent {
     getFilterField () {
         const {currentFilterType, currentValue} = this.state;
         switch (currentFilterType) {
+            case FilterTypes.ALL:
+                return <All onChange={this.changeFieldValue} value={currentValue}/>;
             case FilterTypes.AUTHOR:
                 return <Author onChange={this.changeFieldValue} value={currentValue}/>;
             case FilterTypes.LANGUAGE:
@@ -96,6 +99,7 @@ class Filters extends React.PureComponent {
                             onChange={this.handleChangeType}
                             clearable={false}
                             options={[
+                                { value: FilterTypes.ALL, label: 'Όλα τα πεδία' },
                                 { value: FilterTypes.AUTHOR, label: 'Συγγραφέας' },
                                 { value: FilterTypes.TITLE, label: 'Τίτλος' },
                                 { value: FilterTypes.COUNTRY_OF_PUBLICATION, label: 'Χώρα έκδωσης' },

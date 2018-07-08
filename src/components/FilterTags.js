@@ -15,6 +15,7 @@ function FilterTags({onDelete, search}) {
     };
 
     const fields = {
+        all: 'Όλα τα πεδία: ',
         author: 'Συγγραφέας: ',
         language: 'Γλώσσα: ',
         countryOfPublication: 'Χώρα έκδωσης: ',

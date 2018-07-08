@@ -37,6 +37,7 @@ export const SubjectsActionTypes = keyMirror({
 });
 
 export const FilterTypes = {
+    ALL: 'all',
     AUTHOR: 'author',
     LANGUAGE: 'language',
     COUNTRY_OF_PUBLICATION: 'countryOfPublication',
