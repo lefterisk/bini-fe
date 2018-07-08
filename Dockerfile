@@ -1,17 +1,16 @@
 FROM node:9.11 as build
 
-ARG NPM_TOKEN
 ENV NODE_ENV production
 
 ADD . /usr/src
 WORKDIR /usr/src
-RUN npm install && npm run build
+RUN npm install
+RUN npm run build
 
 # ---
 
 FROM nginx:1.13-alpine
 
-ENV CONSUL_VERSION 1.1.0
 RUN apk --update add ca-certificates && \
     rm /etc/nginx/conf.d/*.conf
 

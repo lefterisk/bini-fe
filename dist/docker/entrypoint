@@ -1,16 +1,3 @@
 #!/bin/ash
 
-# Replace keys with values from consul in main js
-config_root=airline
-consul kv get -http-addr=$CONSUL_HOST -recurse $config_root | grep REPLACE_ | while read -r kv ; do
-  key=$(echo $kv | sed "s%$config_root/\([^:]*\):.*%\1%")
-  value=$(echo $kv | sed "s%$config_root/$key:%%")
-
-  for file in /usr/src/index.html /usr/src/static/js/main.*.js; do
-    if [ "x$key" != "x" ] && [ "x$value" != "x" ]; then
-        sed -i "s%$key%$value%g" $file
-    fi
-  done
-done
-
 nginx
