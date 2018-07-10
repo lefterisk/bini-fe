@@ -1,6 +1,6 @@
 import {createMiddleware} from 'redux-beacon';
 import {LOCATION_CHANGE} from 'react-router-redux';
-import GoogleTagManager from '@redux-beacon/google-tag-manager';
+import googleTagManager from '@redux-beacon/google-tag-manager';
 
 const eventsMap = {
     [LOCATION_CHANGE]: (action) => {
@@ -11,5 +11,5 @@ const eventsMap = {
     },
 };
 
-const gtm = GoogleTagManager();
+const gtm = googleTagManager();
 export default createMiddleware(eventsMap, gtm);
