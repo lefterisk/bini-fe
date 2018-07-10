@@ -22,11 +22,11 @@ function BookListItem ({book, searchUrl, handleClick}) {
             {book.book_author.join(', ')}
         </div>
         <div className="book-list-item-publication-year">
-            <span className="book-list-item-label">Έτος έκδωσης:</span>&nbsp;
+            <span className="book-list-item-label">Έτος έκδοσης:</span>&nbsp;
             {book.book_publication_year}
         </div>
         <div className="book-list-item-publication-place">
-            <span className="book-list-item-label">Τόπος έκδωσης:</span>&nbsp;
+            <span className="book-list-item-label">Τόπος έκδοσης:</span>&nbsp;
             {book.book_publication_country} {book.book_publication_city}
         </div>
         {!book.book_subject.isEmpty() && <div className="book-list-item-subject">

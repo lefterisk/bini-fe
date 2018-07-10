@@ -18,13 +18,13 @@ function FilterTags({onDelete, search}) {
         all: 'Όλα τα πεδία: ',
         author: 'Συγγραφέας: ',
         language: 'Γλώσσα: ',
-        countryOfPublication: 'Χώρα έκδωσης: ',
-        cityOfPublication: 'Πόλη έκδωσης: ',
+        countryOfPublication: 'Χώρα έκδοσης: ',
+        cityOfPublication: 'Πόλη έκδοσης: ',
         publicationType: 'Είδος δημοσιεύματος: ',
         publisher: 'Εκδότης/Τυπογράφος: ',
-        subject: 'θέμα: ',
+        subject: 'Θέμα: ',
         title: 'Τίτλος: ',
-        yearOfPublication: 'Έτος έκδωσης: '
+        yearOfPublication: 'Έτος έκδοσης: '
     };
 
     return (<div className="filter-tags">

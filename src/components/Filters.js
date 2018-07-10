@@ -102,13 +102,13 @@ class Filters extends React.PureComponent {
                                 { value: FilterTypes.ALL, label: 'Όλα τα πεδία' },
                                 { value: FilterTypes.AUTHOR, label: 'Συγγραφέας' },
                                 { value: FilterTypes.TITLE, label: 'Τίτλος' },
-                                { value: FilterTypes.COUNTRY_OF_PUBLICATION, label: 'Χώρα έκδωσης' },
-                                { value: FilterTypes.CITY_OF_PUBLICATION, label: 'Πόλη έκδωσης' },
-                                { value: FilterTypes.YEAR_OF_PUBLICATION, label: 'Έτος έκδωσης' },
+                                { value: FilterTypes.COUNTRY_OF_PUBLICATION, label: 'Χώρα έκδοσης' },
+                                { value: FilterTypes.CITY_OF_PUBLICATION, label: 'Πόλη έκδοσης' },
+                                { value: FilterTypes.YEAR_OF_PUBLICATION, label: 'Έτος έκδοσης' },
                                 { value: FilterTypes.PUBLISHER, label: 'Εκδότης/Τυπογράφος' },
                                 { value: FilterTypes.PUBLICATION_TYPE, label: 'Είδος δημοσιεύματος' },
                                 { value: FilterTypes.LANGUAGE, label: 'Γλώσσα' },
-                                { value: FilterTypes.SUBJECT, label: 'θέμα' },
+                                { value: FilterTypes.SUBJECT, label: 'Θέμα' },
                             ]}
                         />
                     </Col>

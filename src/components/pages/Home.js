@@ -71,7 +71,7 @@ class Home extends React.PureComponent {
             <React.Fragment>
                 {ui.isLoading() && <div className="page-loader"/>}
                 <Helmet>
-                    <title>Anazitisi</title>
+                    <title>Αναζήτηση</title>
                     <meta name="description" content="Anazitisi"/>
                 </Helmet>
                 <Grid>
