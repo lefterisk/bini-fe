@@ -107,8 +107,7 @@ class Home extends React.PureComponent {
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <Pagination currentPage={currentSearch.search.page}
-                                    limit={currentSearch.search.limit}
+                        <Pagination search={currentSearch.search}
                                     count={currentSearch.itemsCount}
                                     onLimitChange={this.onLimitChange}
                                     onPageChange={this.onPageChange}/>
