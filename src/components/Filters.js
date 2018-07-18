@@ -108,7 +108,7 @@ class Filters extends React.PureComponent {
                                 { value: FilterTypes.PUBLISHER, label: 'Εκδότης/Τυπογράφος' },
                                 { value: FilterTypes.PUBLICATION_TYPE, label: 'Είδος δημοσιεύματος' },
                                 { value: FilterTypes.LANGUAGE, label: 'Γλώσσα' },
-                                { value: FilterTypes.SUBJECT, label: 'Θέμα' },
+                                // { value: FilterTypes.SUBJECT, label: 'Θέμα' },
                             ]}
                         />
                     </Col>

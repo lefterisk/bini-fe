@@ -107,276 +107,274 @@ class Book extends React.PureComponent {
                                                 <td width="200"><b>Συγγραφέας: </b></td>
                                                 <td>{book.book_author.join(', ')}</td>
                                             </tr>
-                                            { book.book_title && <tr>
+                                            {book.book_title && <tr>
                                                 <td><b>Τίτλος: </b></td>
                                                 <td>{book.book_title}</td>
-                                            </tr> }
-                                            { book.book_parallel_title && <tr>
+                                            </tr>}
+                                            {book.book_parallel_title && <tr>
                                                 <td><b>Παράλληλος τίτλος: </b></td>
                                                 <td>{book.book_parallel_title}</td>
-                                            </tr> }
-                                            { book.book_sub_title && <tr>
+                                            </tr>}
+                                            {book.book_sub_title && <tr>
                                                 <td><b>Υπότιτλος: </b></td>
                                                 <td>{book.book_sub_title}</td>
-                                            </tr> }
-                                            { book.book_publisher && <tr>
+                                            </tr>}
+                                            {book.book_publisher && <tr>
                                                 <td><b>Εκδότης: </b></td>
                                                 <td>{book.book_publisher}</td>
-                                            </tr> }
-                                            { book.book_printer && <tr>
+                                            </tr>}
+                                            {book.book_printer && <tr>
                                                 <td><b>Τυπογράφος: </b></td>
                                                 <td>{book.book_printer}</td>
-                                            </tr> }
-                                            { book.country_name && <tr>
+                                            </tr>}
+                                            {book.country_name && <tr>
                                                 <td><b>Χώρα έκδοσης: </b></td>
                                                 <td>{book.country_name}</td>
-                                            </tr> }
-                                            { book.city_name && <tr>
+                                            </tr>}
+                                            {book.city_name && <tr>
                                                 <td><b>Πόλη έκδοσης: </b></td>
                                                 <td>{book.city_name}</td>
-                                            </tr> }
-                                            { book.book_publication_year && <tr>
+                                            </tr>}
+                                            {book.book_publication_year && <tr>
                                                 <td><b>Έτος: </b></td>
                                                 <td>{book.book_publication_year}</td>
-                                            </tr> }
-                                            { Number(book.book_publication_number) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.book_publication_number) !== 0 && <tr>
                                                 <td><b>Αρ.Έκδ.: </b></td>
                                                 <td>{book.book_publication_number}</td>
-                                            </tr> }
-                                            { book.book_shape && <tr>
+                                            </tr>}
+                                            {book.book_shape && <tr>
                                                 <td><b>Σχήμα: </b></td>
                                                 <td>{book.book_shape}</td>
-                                            </tr> }
-                                            { Number(book.book_height) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.book_height) !== 0 && <tr>
                                                 <td><b>Ύψος: </b></td>
                                                 <td>{book.book_height}</td>
-                                            </tr> }
-                                            { Number(book.book_volumes) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.book_volumes) !== 0 && <tr>
                                                 <td><b>Τόμοι: </b></td>
                                                 <td>{book.book_volumes}</td>
-                                            </tr> }
-                                            { Number(book.book_pages) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.book_pages) !== 0 && <tr>
                                                 <td><b>Σελ.: </b></td>
                                                 <td>{book.book_pages}</td>
-                                            </tr> }
-                                            { book.book_pagination && <tr>
+                                            </tr>}
+                                            {book.book_pagination && <tr>
                                                 <td><b>Αρίθμηση σελίδων: </b></td>
                                                 <td>{book.book_pagination}</td>
-                                            </tr> }
-                                            { book.book_illustration && <tr>
+                                            </tr>}
+                                            {book.book_illustration && <tr>
                                                 <td><b>Εικονογράφηση: </b></td>
                                                 <td>{book.book_illustration === 'no' ? 'Όχι' : 'Ναι'}</td>
-                                            </tr> }
-                                            { book.book_publication_type && <tr>
+                                            </tr>}
+                                            {book.book_publication_type && <tr>
                                                 <td><b>Τύπος δημοσιεύματος: </b></td>
                                                 <td>{book.book_publication_type}</td>
-                                            </tr> }
-                                            { book.book_bibliography && <tr>
+                                            </tr>}
+                                            {book.book_bibliography && <tr>
                                                 <td><b>Βιβλιογραφία: </b></td>
                                                 <td>{book.book_bibliography}</td>
-                                            </tr> }
-                                            { !book.book_subject.isEmpty() && <tr>
+                                            </tr>}
+                                            {!book.book_subject.isEmpty() && <tr>
                                                 <td><b>Θέμα: </b></td>
                                                 <td>{book.book_subject.join(', ')}</td>
-                                            </tr> }
-                                            { book.included_book_author && <tr>
+                                            </tr>}
+                                            {book.included_book_author && <tr>
                                                 <td><b>Συγγραφέας Περιέχοντος βιβλίου: </b></td>
                                                 <td>{book.included_book_author}</td>
-                                            </tr> }
-                                            { book.included_book_title && <tr>
+                                            </tr>}
+                                            {book.included_book_title && <tr>
                                                 <td><b>Τίτλος Περιέχοντος βιβλίου: </b></td>
                                                 <td>{book.included_book_title}</td>
-                                            </tr> }
-                                            { book.series_title && <tr>
+                                            </tr>}
+                                            {book.series_title && <tr>
                                                 <td><b>Τίτλος σειράς: </b></td>
                                                 <td>{book.series_title}</td>
-                                            </tr> }
-                                            { Number(book.volume_number) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.volume_number) !== 0 && <tr>
                                                 <td><b>Αριθμός τόμου: </b></td>
                                                 <td>{book.volume_number}</td>
-                                            </tr> }
-                                            { book.magazine_title && <tr>
+                                            </tr>}
+                                            {book.magazine_title && <tr>
                                                 <td><b>Τίτλος περιοδικού: </b></td>
                                                 <td>{book.magazine_title}</td>
-                                            </tr> }
-                                            { Number(book.magazine_opuscule) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.magazine_opuscule) !== 0 && <tr>
                                                 <td><b>Τεύχος: </b></td>
                                                 <td>{book.magazine_opuscule}</td>
-                                            </tr> }
-                                            { Number(book.magazine_volume) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.magazine_volume) !== 0 && <tr>
                                                 <td><b>Τόμος: </b></td>
                                                 <td>{book.magazine_volume}</td>
-                                            </tr> }
-                                            { book.newspaper_title && <tr>
+                                            </tr>}
+                                            {book.newspaper_title && <tr>
                                                 <td><b>Τίτλος εφημερίδας: </b></td>
                                                 <td>{book.newspaper_title}</td>
-                                            </tr> }
-                                            { Number(book.newspaper_volume) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.newspaper_volume) !== 0 && <tr>
                                                 <td><b>Φύλλο: </b></td>
                                                 <td>{book.newspaper_volume}</td>
-                                            </tr> }
-                                            { book.idological_classification && <tr>
+                                            </tr>}
+                                            {book.idological_classification && <tr>
                                                 <td><b>Ειδολογική κατάταξη: </b></td>
                                                 <td>{book.idological_classification}</td>
-                                            </tr> }
-                                            { book.cronological_classification && <tr>
+                                            </tr>}
+                                            {book.cronological_classification && <tr>
                                                 <td><b>Χρονολογική κατάταξη: </b></td>
                                                 <td>{book.cronological_classification}</td>
-                                            </tr> }
-                                            { !book.thematical_classification.isEmpty() && <tr>
+                                            </tr>}
+                                            {!book.thematical_classification.isEmpty() && <tr>
                                                 <td><b>Θεματική κατάταξη: </b></td>
                                                 <td>{book.thematical_classification.join(', ')}</td>
-                                            </tr> }
-                                            { !book.tekmirio_language.isEmpty() && <tr>
+                                            </tr>}
+                                            {!book.tekmirio_language.isEmpty() && <tr>
                                                 <td><b>Γλώσσα Τεκμηρίου: </b></td>
                                                 <td>{book.tekmirio_language.join(', ')}</td>
-                                            </tr> }
-                                            { book.prototype && <tr>
+                                            </tr>}
+                                            {book.prototype && <tr>
                                                 <td><b>Πρωτοτυπία: </b></td>
                                                 <td>{book.prototype}</td>
-                                            </tr> }
-                                            { book.original_language && <tr>
+                                            </tr>}
+                                            {book.original_language && <tr>
                                                 <td><b>Γλώσσα αρχικού πρωτοτύπου: </b></td>
                                                 <td>{book.original_language}</td>
-                                            </tr> }
-                                            { book.original_translated_language && <tr>
+                                            </tr>}
+                                            {book.original_translated_language && <tr>
                                                 <td><b>Γλώσσα μεταφ/ένου πρωτοτύπου: </b></td>
                                                 <td>{book.original_translated_language}</td>
-                                            </tr> }
-                                            { !book.libraries.isEmpty() && <tr>
+                                            </tr>}
+                                            {!book.libraries.isEmpty() && <tr>
                                                 <td><b>Βιβλιοθήκες: </b></td>
                                                 <td>{book.libraries.join(', ')}</td>
-                                            </tr> }
-                                            { book.url && <tr>
+                                            </tr>}
+                                            {!book.url.isEmpty() && <tr>
                                                 <td><b>URL: </b></td>
-                                                <td>
-                                                    <a href={book.url} target="_blank">
-                                                        <Glyphicon glyph="new-window"/> {book.url}
-                                                    </a>
-                                                </td>
-                                            </tr> }
+                                                <td>{book.url.map(url => <a key={url} href={url} target="_blank">
+                                                    <Glyphicon glyph="new-window"/> {url}
+                                                </a>)}</td>
+                                            </tr>}
                                             </tbody>
                                         </table>
                                     </Tab>
-                                    { show2ndTab && <Tab eventKey={2} title="Λεπτομέρειες-Περιγραφή">
+                                    {show2ndTab && <Tab eventKey={2} title="Λεπτομέρειες-Περιγραφή">
                                         <br/>
                                         <table className="table table-striped">
                                             <tbody>
-                                            { !book.contributors.isEmpty() && <tr>
+                                            {!book.contributors.isEmpty() && <tr>
                                                 <td width="200"><b>Συντελεστές: </b></td>
                                                 <td>{book.contributors.join(', ')}</td>
-                                            </tr> }
-                                            { book.funding && <tr>
+                                            </tr>}
+                                            {book.funding && <tr>
                                                 <td width="200"><b>Χρηματοδότηση: </b></td>
                                                 <td>{book.funding}</td>
-                                            </tr> }
-                                            { book.title_page_text && <tr>
+                                            </tr>}
+                                            {book.title_page_text && <tr>
                                                 <td width="200"><b>Κείμενο σελίδας τίτλου: </b></td>
                                                 <td>{book.title_page_text}</td>
-                                            </tr> }
-                                            { book.kolofonas_text && <tr>
+                                            </tr>}
+                                            {book.kolofonas_text && <tr>
                                                 <td width="200"><b>Κείμενο κολοφώνα: </b></td>
                                                 <td>{book.kolofonas_text}</td>
-                                            </tr> }
-                                            { book.description && <tr>
+                                            </tr>}
+                                            {book.description && <tr>
                                                 <td width="200"><b>Περιγραφή: </b></td>
                                                 <td>{book.description}</td>
-                                            </tr> }
+                                            </tr>}
 
                                             </tbody>
                                         </table>
-                                    </Tab> }
-                                    { show3rdTab && <Tab eventKey={3} title="Στοιχεία πρωτοτύπου">
+                                    </Tab>}
+                                    {show3rdTab && <Tab eventKey={3} title="Στοιχεία πρωτοτύπου">
                                         <br/>
                                         <table className="table table-striped">
-                                        <tbody>
-                                            { !book.prototype_author.isEmpty() && <tr>
+                                            <tbody>
+                                            {!book.prototype_author.isEmpty() && <tr>
                                                 <td width="200"><b>Συγγραφέας πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_author.join(', ')}</td>
-                                            </tr> }
-                                            { book.prototype_title && <tr>
+                                            </tr>}
+                                            {book.prototype_title && <tr>
                                                 <td width="200"><b>Τίτλος πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_title}</td>
-                                            </tr> }
-                                            { book.prototype_parallel_title && <tr>
+                                            </tr>}
+                                            {book.prototype_parallel_title && <tr>
                                                 <td width="200"><b>Τίτλος αρχικού πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_parallel_title}</td>
-                                            </tr> }
-                                            { book.prototype_subtitle && <tr>
+                                            </tr>}
+                                            {book.prototype_subtitle && <tr>
                                                 <td width="200"><b>Υπότιτλος πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_subtitle}</td>
-                                            </tr> }
-                                            { book.prototype_publisher && <tr>
+                                            </tr>}
+                                            {book.prototype_publisher && <tr>
                                                 <td width="200"><b>Εκδότης πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_publisher}</td>
-                                            </tr> }
-                                            { book.prototype_printer && <tr>
+                                            </tr>}
+                                            {book.prototype_printer && <tr>
                                                 <td width="200"><b>Τυπογράφος πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_printer}</td>
-                                            </tr> }
-                                            { book.prototype_publication_country && <tr>
+                                            </tr>}
+                                            {book.prototype_publication_country && <tr>
                                                 <td width="200"><b>Χώρα έκδοσης πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_publication_country}</td>
-                                            </tr> }
-                                            { book.prototype_publication_city && <tr>
+                                            </tr>}
+                                            {book.prototype_publication_city && <tr>
                                                 <td width="200"><b>Πόλη έκδοσης πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_publication_city}</td>
-                                            </tr> }
-                                            { Number(book.prototype_publication_year) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.prototype_publication_year) !== 0 && <tr>
                                                 <td width="200"><b>Έτος έκδοσης πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_publication_year}</td>
-                                            </tr> }
-                                            { book.prototype_shape && <tr>
+                                            </tr>}
+                                            {book.prototype_shape && <tr>
                                                 <td width="200"><b>Σχήμα πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_shape}</td>
-                                            </tr> }
-                                            { Number(book.prototype_volumes) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.prototype_volumes) !== 0 && <tr>
                                                 <td width="200"><b>Τόμοι πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_volumes}</td>
-                                            </tr> }
-                                            { Number(book.prototype_pages) !== 0 && <tr>
+                                            </tr>}
+                                            {Number(book.prototype_pages) !== 0 && <tr>
                                                 <td width="200"><b>Σελ. πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_pages}</td>
-                                            </tr> }
-                                            { book.prototype_pagination && <tr>
+                                            </tr>}
+                                            {book.prototype_pagination && <tr>
                                                 <td width="200"><b>Αρίθμηση σελίδων πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_pagination}</td>
-                                            </tr> }
-                                            { book.prototype_illustration && <tr>
+                                            </tr>}
+                                            {book.prototype_illustration && <tr>
                                                 <td width="200"><b>Εικονογράφηση πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_illustration}</td>
-                                            </tr> }
-                                            { book.prototype_publication_type && <tr>
+                                            </tr>}
+                                            {book.prototype_publication_type && <tr>
                                                 <td width="200"><b>Τύπος δημοσιεύματος πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_publication_type}</td>
-                                            </tr> }
-                                            { book.prototype_original_prototype && <tr>
+                                            </tr>}
+                                            {book.prototype_original_prototype && <tr>
                                                 <td width="200"><b>Πρωτοτυπία πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_original_prototype}</td>
-                                            </tr> }
-                                            { book.prototype_original_language && <tr>
+                                            </tr>}
+                                            {book.prototype_original_language && <tr>
                                                 <td width="200"><b>Γλώσσα αρχικού πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_original_language}</td>
-                                            </tr> }
-                                            { book.translated_prototype_original_language && <tr>
+                                            </tr>}
+                                            {book.translated_prototype_original_language && <tr>
                                                 <td width="200"><b>Γλώσσα μετφρ. πρωτοτύπου: </b></td>
                                                 <td>{book.translated_prototype_original_language}</td>
-                                            </tr> }
-                                            { book.prototype_description && <tr>
+                                            </tr>}
+                                            {book.prototype_description && <tr>
                                                 <td width="200"><b>Περιγραφή πρωτοτύπου: </b></td>
                                                 <td>{book.prototype_description}</td>
-                                            </tr> }
-                                            { book.prototype_url && <tr>
+                                            </tr>}
+                                            {book.prototype_url && <tr>
                                                 <td width="200"><b>URL πρωτοτύπου: </b></td>
                                                 <td>
                                                     <a href={book.prototype_url} target="_blank">
                                                         <Glyphicon glyph="new-window"/> {book.prototype_url}
                                                     </a>
                                                 </td>
-                                            </tr> }
-                                        </tbody>
-                                    </table>
-                                    </Tab> }
+                                            </tr>}
+                                            </tbody>
+                                        </table>
+                                    </Tab>}
                                 </Tabs>
                             </Col>
                         </Row>

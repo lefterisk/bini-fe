@@ -27,11 +27,11 @@ function BookListItem ({book, searchUrl, handleClick}) {
         </div>
         <div className="book-list-item-publication-place">
             <span className="book-list-item-label">Τόπος έκδοσης:</span>&nbsp;
-            {book.book_publication_country} {book.book_publication_city}
+            {book.book_publication_country}{book.book_publication_country ? ',' : ''} {book.book_publication_city}
         </div>
-        {!book.book_subject.isEmpty() && <div className="book-list-item-subject">
-            <span className="book-list-item-label">Θέμα:</span>&nbsp;
-            {book.book_subject.join(', ')}
+        {(book.book_pages > 0) && <div className="book-list-item-subject">
+            <span className="book-list-item-label">Σελίδες:</span>&nbsp;
+            {book.book_pages}
         </div>}
     </li>);
 }
