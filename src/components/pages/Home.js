@@ -18,6 +18,7 @@ import Pagination from '../Pagination';
 import Header from '../Header';
 import NoResults from '../NoResults';
 import Info from '../Info';
+import Footer from '../Footer';
 
 class Home extends React.PureComponent {
     static propTypes = {
@@ -103,23 +104,25 @@ class Home extends React.PureComponent {
                                                                         searchUrl={currentSearch.search.toQuery()}
                                                                         handleClick={this.handleBookClick}/>}
                              {(currentSearch.itemsCount === 0 && !currentSearch.loading) && <NoResults/>}
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={12}>
-                        <Pagination search={currentSearch.search}
-                                    count={currentSearch.itemsCount}
-                                    onLimitChange={this.onLimitChange}
-                                    onPageChange={this.onPageChange}/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={12}><Info/></Col>
-                </Row>
-            </Grid>
-    </React.Fragment>
-    )
-        ;
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}>
+                            <Pagination search={currentSearch.search}
+                                        count={currentSearch.itemsCount}
+                                        onLimitChange={this.onLimitChange}
+                                        onPageChange={this.onPageChange}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}><Info/></Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}><Footer/></Col>
+                    </Row>
+                </Grid>
+            </React.Fragment>
+        );
     }
 }
 

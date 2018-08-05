@@ -16,6 +16,7 @@ import BookState from "../../records/BookState";
 
 import Header from '../Header';
 import Info from '../Info';
+import Footer from '../Footer';
 
 class Book extends React.PureComponent {
     static propTypes = {
@@ -380,6 +381,9 @@ class Book extends React.PureComponent {
                         </Row>
                         <Row>
                             <Col xs={12}><Info/></Col>
+                        </Row>
+                        <Row>
+                            <Col xs={12}><Footer/></Col>
                         </Row>
                     </Grid>
                 </React.Fragment>}

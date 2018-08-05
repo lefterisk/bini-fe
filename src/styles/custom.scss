@@ -117,6 +117,24 @@ h1 {
     margin: 15px 0;
 }
 
+.footer-section {
+    padding-bottom: 15px;
+    font-size: 0.8em;
+    position: relative;
+    text-align: justify;
+
+    .footer-logo {
+        float: right;
+        display: block;
+        position: relative;
+        background: url("../images/logo_ekt_header.jpg") no-repeat center center;
+        background-size: contain;
+        width: 84px;
+        height: 41px;
+        margin-left: 20px;
+    }
+}
+
 @media (max-width: $screen-sm-min) {
     .filters {
         .form-control, .Select-control {
