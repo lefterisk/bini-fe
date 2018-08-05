@@ -24,7 +24,9 @@ function FilterTags({onDelete, search}) {
         publisher: 'Εκδότης/Τυπογράφος: ',
         subject: 'Θέμα: ',
         title: 'Τίτλος: ',
-        yearOfPublication: 'Έτος έκδοσης: '
+        yearOfPublication: 'Έτος έκδοσης: ',
+        thematicalClassification: 'Θεματική κατηγοριοποίηση: ',
+        idologicalClassification: 'Ειδολογική κατηγοριοποίηση: ',
     };
 
     return (<div className="filter-tags">

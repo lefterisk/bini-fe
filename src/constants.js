@@ -47,6 +47,8 @@ export const FilterTypes = {
     SUBJECT: 'subject',
     TITLE: 'title',
     YEAR_OF_PUBLICATION: 'yearOfPublication',
+    THEMATICAL_CLASSIFICATION: 'thematicalClassification',
+    IDOLOGICAL_CLASSIFICATION: 'idologicalClassification',
 };
 
 export const Languages = {
@@ -77,3 +79,29 @@ export const UiActionTypes = keyMirror({
     LOADING_START: null,
     LOADING_END: null
 });
+
+export const ThematicalClassifications = [
+    'Γενικά έργα',
+    'Φιλοσοφία-Θεωρία Ιστορίας',
+    'Οικονομική Ιστορία',
+    'Κοινωνική Ιστορία',
+    'Πολιτική Ιστορία',
+    'Πολεμική Ιστορία',
+    'Διπλωματική Ιστορία',
+    'Εκκλησιαστική Ιστορία',
+    'Ιστορία Δικαίου-Θεσμών',
+    'Πολιτισμική Ιστορία',
+    'Γραμματολογία',
+    'Ιστορία των Επιστημών',
+    'Τοπική Ιστορία',
+    'Βιογραφίες',
+    'Ιστορία έθνους',
+    'Ιστορία εθνών'
+];
+
+export const IdologicalClassifications = [
+    'Ιστοριογραφία',
+    'Χρονογραφία',
+    'Χρονολογία',
+    'Βιβλιογραφία'
+];

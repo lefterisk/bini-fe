@@ -18,6 +18,8 @@ import Subject from './searchFields/Subject';
 import Title from './searchFields/Title';
 import YearOfPublication from './searchFields/YearOfPublication';
 import All from './searchFields/All';
+import ThematicalClassification from './searchFields/ThematicalClassification';
+import IdologicalClassification from './searchFields/IdologicalClassification';
 import FilterTags from './FilterTags';
 
 class Filters extends React.PureComponent {
@@ -83,6 +85,10 @@ class Filters extends React.PureComponent {
                 return <Title onChange={this.changeFieldValue} value={currentValue}/>;
             case FilterTypes.YEAR_OF_PUBLICATION:
                 return <YearOfPublication onChange={this.changeFieldValue} value={currentValue}/>;
+            case FilterTypes.THEMATICAL_CLASSIFICATION:
+                return <ThematicalClassification onChange={this.changeFieldValue} value={currentValue}/>;
+            case FilterTypes.IDOLOGICAL_CLASSIFICATION:
+                return <IdologicalClassification onChange={this.changeFieldValue} value={currentValue}/>;
         }
     }
 
@@ -108,6 +114,8 @@ class Filters extends React.PureComponent {
                                 { value: FilterTypes.PUBLISHER, label: 'Εκδότης/Τυπογράφος' },
                                 { value: FilterTypes.PUBLICATION_TYPE, label: 'Είδος δημοσιεύματος' },
                                 { value: FilterTypes.LANGUAGE, label: 'Γλώσσα' },
+                                { value: FilterTypes.THEMATICAL_CLASSIFICATION, label: 'Θεματική κατηγοριοποίηση' },
+                                { value: FilterTypes.IDOLOGICAL_CLASSIFICATION, label: 'Ειδολογική κατηγοριοποίηση' },
                                 // { value: FilterTypes.SUBJECT, label: 'Θέμα' },
                             ]}
                         />
