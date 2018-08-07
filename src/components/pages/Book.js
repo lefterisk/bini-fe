@@ -222,7 +222,11 @@ class Book extends React.PureComponent {
                                             </tr>}
                                             {book.cronological_classification && <tr>
                                                 <td><b>Χρονολογική κατάταξη: </b></td>
-                                                <td>{book.cronological_classification}</td>
+                                                <td>{
+                                                book.cronological_classification === 'Α-Μ-Ν'
+                                                    ? 'Από την αρχαιότητα ως τους νεότερους χρόνους'
+                                                    : book.cronological_classification
+                                                }</td>
                                             </tr>}
                                             {!book.thematical_classification.isEmpty() && <tr>
                                                 <td><b>Θεματική κατάταξη: </b></td>

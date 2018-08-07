@@ -49,6 +49,7 @@ export const FilterTypes = {
     YEAR_OF_PUBLICATION: 'yearOfPublication',
     THEMATICAL_CLASSIFICATION: 'thematicalClassification',
     IDOLOGICAL_CLASSIFICATION: 'idologicalClassification',
+    CHRONOLOGICAL_CLASSIFICATION: 'chronologicalClassification',
 };
 
 export const Languages = {
@@ -104,4 +105,22 @@ export const IdologicalClassifications = [
     'Χρονογραφία',
     'Χρονολογία',
     'Βιβλιογραφία'
+];
+
+
+export const ChronologicalClassifications = [
+    'Αρχαιότητα',
+    'Μεσαίωνας',
+    'Νεότεροι Χρόνοι',
+    'Αρχαιότητα-Μεσαίωνας',
+    'Μεσαίωνας-Νεότεροι χρόνοι',
+    'Α-Μ-Ν',
+    '12ος-6ος αι. π.Χ.',
+    '500-338 π.Χ.',
+    '338-146 π.Χ.',
+    '146-330 μ.Χ.',
+    '330-1453',
+    '1453-1821',
+    '1821-1833',
+    '1833-1909'
 ];

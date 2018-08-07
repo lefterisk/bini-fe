@@ -21,6 +21,7 @@ import All from './searchFields/All';
 import ThematicalClassification from './searchFields/ThematicalClassification';
 import IdologicalClassification from './searchFields/IdologicalClassification';
 import FilterTags from './FilterTags';
+import ChronologicalClassification from './searchFields/ChronologicalClassification';
 
 class Filters extends React.PureComponent {
     static propTypes = {
@@ -89,6 +90,8 @@ class Filters extends React.PureComponent {
                 return <ThematicalClassification onChange={this.changeFieldValue} value={currentValue}/>;
             case FilterTypes.IDOLOGICAL_CLASSIFICATION:
                 return <IdologicalClassification onChange={this.changeFieldValue} value={currentValue}/>;
+            case FilterTypes.CHRONOLOGICAL_CLASSIFICATION:
+                return <ChronologicalClassification onChange={this.changeFieldValue} value={currentValue}/>;
         }
     }
 
@@ -114,8 +117,9 @@ class Filters extends React.PureComponent {
                                 { value: FilterTypes.PUBLISHER, label: 'Εκδότης/Τυπογράφος' },
                                 { value: FilterTypes.PUBLICATION_TYPE, label: 'Είδος δημοσιεύματος' },
                                 { value: FilterTypes.LANGUAGE, label: 'Γλώσσα' },
-                                { value: FilterTypes.THEMATICAL_CLASSIFICATION, label: 'Θεματική κατηγοριοποίηση' },
-                                { value: FilterTypes.IDOLOGICAL_CLASSIFICATION, label: 'Ειδολογική κατηγοριοποίηση' },
+                                { value: FilterTypes.THEMATICAL_CLASSIFICATION, label: 'Θεματική κατάταξη' },
+                                { value: FilterTypes.IDOLOGICAL_CLASSIFICATION, label: 'Ειδολογική κατάταξη' },
+                                { value: FilterTypes.CHRONOLOGICAL_CLASSIFICATION, label: 'Χρονική κάλυψη' },
                                 // { value: FilterTypes.SUBJECT, label: 'Θέμα' },
                             ]}
                         />

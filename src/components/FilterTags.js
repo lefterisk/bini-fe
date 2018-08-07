@@ -25,8 +25,9 @@ function FilterTags({onDelete, search}) {
         subject: 'Θέμα: ',
         title: 'Τίτλος: ',
         yearOfPublication: 'Έτος έκδοσης: ',
-        thematicalClassification: 'Θεματική κατηγοριοποίηση: ',
-        idologicalClassification: 'Ειδολογική κατηγοριοποίηση: ',
+        thematicalClassification: 'Θεματική κατάταξη: ',
+        idologicalClassification: 'Ειδολογική κατάταξη: ',
+        chronologicalClassification: 'Χρονική κάλυψη: ',
     };
 
     return (<div className="filter-tags">
