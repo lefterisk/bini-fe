@@ -25,7 +25,7 @@ class Publisher extends React.PureComponent {
         return (<FormControl
             type="text"
             value={this.props.value ? this.props.value.value : ''}
-            placeholder="Τίτλος"
+            placeholder="Εκδότης/τυπογράφος"
             onChange={this.handleChange}
         />);
     }
