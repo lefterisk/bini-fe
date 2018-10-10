@@ -92,6 +92,8 @@ class Filters extends React.PureComponent {
                 return <IdologicalClassification onChange={this.changeFieldValue} value={currentValue}/>;
             case FilterTypes.CHRONOLOGICAL_CLASSIFICATION:
                 return <ChronologicalClassification onChange={this.changeFieldValue} value={currentValue}/>;
+            default:
+                return null;
         }
     }
 

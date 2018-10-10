@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 
 import {ThematicalClassifications, FilterTypes} from './../../constants';
-import {Languages} from "../../constants";
 
 class ThematicalClassification extends React.PureComponent {
     static propTypes = {

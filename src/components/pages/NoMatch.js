@@ -1,8 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
-import {Link} from 'react-router-dom';
-import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 export default function NoMatch() {
     return (

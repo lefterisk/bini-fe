@@ -12,6 +12,13 @@ h1 {
         font-size: 1.4em;
         margin-bottom: 10px;
     }
+
+    a {
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+        }
+        text-decoration: none;
+    }
 }
 
 .glyphicon.spinning {
